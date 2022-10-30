@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="pdfReport" class="org.example.repository.PdfReport" />
+    <bean id="htmlReport" class="org.example.repository.HtmlReport" />
+    <bean id="reportService" class="org.example.Service.ReportService">
+
+        <!-- constructor injection -->
+        <constructor-arg name="reportGenerator" ref="pdfReport"/>
+        <constructor-arg name="records" value="100"/>
+
+<!--        &lt;!&ndash; setter injection &ndash;&gt;-->
+<!--        <property name="reportGenerator" ref="htmlReport"/>-->
+<!--        <property name="records" value="100"/>-->
+    </bean>
+
+<!--        &lt;!&ndash; autowire by name &ndash;&gt;-->
+<!--    <bean id="reportService" class="org.example.Service.ReportService" autowire="byName">-->
+<!--        <property name="records" value="500" />-->
+<!--    </bean>-->
+
+<!--    <bean id="reportGenerator" class="org.example.repository.PdfReport" />-->
+<!--    <bean id="htmlReport" class="org.example.repository.HtmlReport"/>-->
+
+
+<!--        &lt;!&ndash; autowire by type &ndash;&gt;-->
+<!--    <bean id="reportService" class="org.example.Service.ReportService" autowire="byType">-->
+<!--        <property name="records" value= "500"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="htmlReportGenerator" class="org.example.repository.HtmlReport" />-->
+
+
+<!--        &lt;!&ndash; autowire by constructor  &ndash;&gt;-->
+
+<!--    <bean id="reportService" class="org.example.Service.ReportService" autowire="constructor">-->
+<!--        <constructor-arg name="records" value= "500"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="pdfReportGenerator" class="org.example.repository.PdfReport"/>-->
+
+
+
+
+
+</beans>
